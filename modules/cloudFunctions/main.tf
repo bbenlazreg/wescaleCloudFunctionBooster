@@ -1,8 +1,8 @@
 # zip source code
 data "archive_file" "app_zip" {
  type        = "zip"
- source_dir  = "${path.root}/app/"
- output_path = "${path.root}/app.zip"
+ source_dir  = "${path.root}/../../app/"
+ output_path = "${path.root}/../../app/app.zip"
 }
 
 # function storage bucket
@@ -14,7 +14,7 @@ resource "google_storage_bucket" "app_bucket" {
 resource "google_storage_bucket_object" "app_zip" {
  name   = "app.zip"
  bucket = "${google_storage_bucket.app_bucket.name}"
- source = "${path.root}/${var.env}/app.zip"
+ source = "${path.root}/../../app/app.zip"
 }
 
 # cloud function

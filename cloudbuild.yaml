@@ -10,7 +10,7 @@ steps:
           echo "-----------------------"
     
     - id: 'tf init'
-      name: 'hashicorp/terraform:0.11.14'
+      name: 'hashicorp/terraform:0.12.9'
       entrypoint: 'sh'
       args: 
       - '-c'
@@ -35,7 +35,7 @@ steps:
     
     # [terraform plan]
     - id: 'tf plan'
-      name: 'hashicorp/terraform:0.11.14'
+      name: 'hashicorp/terraform:0.12.9'
       entrypoint: 'sh'
       args: 
       - '-c'
@@ -60,7 +60,7 @@ steps:
     
     # [terraform apply]
     - id: 'tf apply'
-      name: 'hashicorp/terraform:0.11.14'
+      name: 'hashicorp/terraform:0.12.9'
       entrypoint: 'sh'
       args: 
       - '-c'

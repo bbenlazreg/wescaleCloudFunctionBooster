@@ -7,12 +7,12 @@ data "archive_file" "app_zip" {
 
 # function storage bucket
 resource "google_storage_bucket" "app_bucket" {
- name   = "app_bucket"
+ name   = "app_bucket_${var.project}"
 }
 
 # copy zip to bucket
 resource "google_storage_bucket_object" "app_zip" {
- name   = "app.zip"
+ name   = "${var.env}/app.zip"
  bucket = "${google_storage_bucket.app_bucket.name}"
  source = "${path.root}/../../app/app.zip"
 }

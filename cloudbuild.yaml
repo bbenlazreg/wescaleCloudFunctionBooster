@@ -26,7 +26,7 @@ steps:
               env=${env#*/}
               echo ""
               echo "------------ TERRAFORM INIT ------------"
-              echo "------- Environment: ${env} ------------
+              echo "------- Environment: ${env} ------------"
               echo "----------------------------------------"
               terraform init || exit 1
               cd ../../

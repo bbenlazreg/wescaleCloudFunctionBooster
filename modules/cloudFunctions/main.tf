@@ -28,5 +28,9 @@ resource "google_cloudfunctions_function" "app_function" {
  entry_point           = "helloWorld"
  trigger_http          = true
  runtime               = "nodejs10"
+
+ depends_on = [
+    google_storage_bucket_object.app_zip
+  ] 
 }
 

@@ -24,7 +24,7 @@ resource "google_cloudfunctions_function" "app_function" {
  available_memory_mb   = 256
  source_archive_bucket = "${google_storage_bucket.app_bucket.name}"
  source_archive_object = "${google_storage_bucket_object.app_zip.name}"
- timeout               = 60
+ timeout               = 30
  entry_point           = "helloWorld"
  trigger_http          = true
  runtime               = "nodejs10"

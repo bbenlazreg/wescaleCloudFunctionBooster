@@ -7,6 +7,18 @@ This project deploys a Cloud function to GCP using Cloud Build pipeline, at the 
 
 Supported Git repositories are Github and Cloud Source repository (GCP git), a gitlab integration is ongoing
 
+## Prerequisite 
+- Install gcloud [gcloud](https://cloud.google.com/sdk/install)
+- Install [terraform](https://learn.hashicorp.com/terraform/getting-started/install.html)
+- Authenticate to your GCP project 
+- You need to give the Cloud Build service account rights to create ressources in your GCP project, to do so you can give it editor role:
+
+    ```
+    PROJECT=<gcp_project_id>
+    CLOUDBUILD_SA="$(gcloud projects describe $PROJECT --format 'value(projectNumber)')@cloudbuild.gserviceaccount.com"
+    gcloud projects add-iam-policy-binding $PROJECT --member serviceAccount:$CLOUDBUILD_SA --role roles/editor
+    ```
+
 ## Repository setup
 - **Github**  You need to install the Cloud Build Github App and connect your github repository to GCP, to do so follow this [documentation](https://cloud.google.com/cloud-build/docs/automating-builds/run-builds-on-github#installing_the_google_cloud_build_app)
 - **Cloud Source Repository** terraform code is provided in ```setup``` directory, to create a CSR repository and Cloud build triggers:
